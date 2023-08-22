@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/dice_roller.dart';
 // import 'package:my_app/styled_text.dart';
 
 const beginAlignment = Alignment.topLeft;
@@ -17,13 +18,9 @@ class GradientWrapper extends StatelessWidget {
         gradient: LinearGradient(
             begin: beginAlignment, end: endAlignment, colors: [color1, color2]),
       ),
-      child: Center(
-        // child: StyledText('Hey there, Jane Doe'),
-        child: Image.asset(
-          'assets/images/dice-1.png',
-          width: 170,
-        ),
-      ),
+      child: const Center(
+          // child: StyledText('Hey there, Jane Doe'),
+          child: DiceRoller()),
     );
   }
 }
