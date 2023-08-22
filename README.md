@@ -35,6 +35,10 @@ samples, guidance on mobile development, and a full API reference.
   
 ### Building Custom Widgets
 
+Widgets are classes used to build UIs
+
+Widgets are used for both layout and UI elements
+
 Dart automatically adds a constructor function to every custom widget
 
 Basically, all widgets are classes in flutter. To create a custom widget one needs to extend `StatelessWidget`
@@ -133,7 +137,8 @@ class GradientWrapper extends StatelessWidget {
 }
 ```
 
-### Displaying Images
+Widgets are classes used to build UIs.
+Widgets are used for both layout and UI elements### Displaying Images
 
 [Flutter Pub: Expected a key while parsing a block mapping. path:](https://stackoverflow.com/questions/50171766/flutter-pub-expected-a-key-while-parsing-a-block-mapping-path "Stack overflow thread")
 
@@ -147,4 +152,88 @@ One must register the images relative paths in the `pubspec.yaml` file in order 
     - assets/images/dice-4.png
     - assets/images/dice-5.png
     - assets/images/dice-6.png
+```
+
+### Layout Widgets - Column & Row
+
+**Column** - A widget that displays its children in a vertical array
+
+**Row** - A widget that displays its children in a horizontal array
+
+### Buttons
+
+A common pattern in flutter is to keep the  widget arguments last:
+
+```dart
+TextButton(
+  onPressed: rollDice,
+  style: TextButton.styleFrom(
+      foregroundColor: Colors.white,
+      textStyle: const TextStyle(fontSize: 24)),
+  child: const Text('Roll')) // this argument is last
+```
+
+You can use a `SizedBox()` widget or padding inside the `TextButton.styleFrom(padding: 20,)` method:
+
+The `SizedBox` widget only takes up space(in this case the height) in the UI, it wont show anything. It has a fixed with and height therefore it won't grow to fit the contents of any widgets nested in it
+
+```dart
+style: TextButton.styleFrom(
+                  padding: const EdgeInsets.only(top: 20),
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(fontSize: 24)),
+              child: const Text('Roll Dice')
+```
+
+### Stateful Widget
+
+It is a common pattern to associate a state class with its parent class in the same file
+
+The `setState()` function will cause flutter to re-execute the build method which will listen for any changes in state and re-render the UI
+
+```dart
+import 'package:flutter/material.dart';
+
+class DiceRoller extends StatefulWidget {
+  const DiceRoller({super.key});
+
+  @override
+  State<DiceRoller> createState() {
+    return _DiceRollerState(); // execute the DiceRollerState
+  }
+}
+
+// private class only for use in this file
+class _DiceRollerState extends State<DiceRoller> {
+  var currentDiceImage = 'assets/images/dice-1.png';
+
+  void rollDice() {
+    setState(
+      () {
+        currentDiceImage = 'assets/images/dice-3.png';
+      },
+    );
+  }
+
+  @override
+  Widget build(context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min, // centers the dice vertically
+      children: [
+        Image.asset(
+          currentDiceImage,
+          width: 170,
+        ),
+        const SizedBox(height: 20),
+        TextButton(
+            onPressed: rollDice,
+            style: TextButton.styleFrom(
+                // padding: const EdgeInsets.only(top: 20),
+                foregroundColor: Colors.white,
+                textStyle: const TextStyle(fontSize: 24)),
+            child: const Text('Roll Dice'))
+      ],
+    );
+  }
+}
 ```
