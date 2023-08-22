@@ -1,4 +1,4 @@
-# my_app
+# Dice Roller
 
 To run this Linux app locally just type this command on the terminal
 
