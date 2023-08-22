@@ -17,7 +17,7 @@ class GradientWrapper extends StatelessWidget {
             colors: [Colors.amber, Color.fromARGB(255, 197, 63, 221)]),
       ),
       child: const Center(
-        child: StyledText(),
+        child: StyledText('Hey there, Jane Doe'),
       ),
     );
   }
