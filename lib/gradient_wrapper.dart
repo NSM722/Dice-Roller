@@ -5,16 +5,17 @@ const beginAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientWrapper extends StatelessWidget {
-  const GradientWrapper({super.key});
+  const GradientWrapper(this.color1, this.color2, {super.key});
+
+  final Color color1;
+  final Color color2;
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: beginAlignment,
-            end: endAlignment,
-            colors: [Colors.amber, Color.fromARGB(255, 197, 63, 221)]),
+            begin: beginAlignment, end: endAlignment, colors: [color1, color2]),
       ),
       child: const Center(
         child: StyledText('Hey there, Jane Doe'),
@@ -22,3 +23,24 @@ class GradientWrapper extends StatelessWidget {
     );
   }
 }
+
+// class GradientWrapper extends StatelessWidget {
+//   const GradientWrapper({super.key, required this.colors});
+
+//   final List<Color> colors;
+
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         gradient: LinearGradient(
+//             begin: beginAlignment, end: endAlignment, colors: colors),
+//       ),
+//       child: const Center(
+//         child: StyledText('Hey there, Jane Doe'),
+//       ),
+//     );
+//   }
+// }
+
+// [Colors.amber, Color.fromARGB(255, 197, 63, 221)]
