@@ -203,7 +203,7 @@ class DiceRoller extends StatefulWidget {
   }
 }
 
-// private class only for use in this file
+// private class only for use in this file(dice_roller.dart)
 class _DiceRollerState extends State<DiceRoller> {
   var currentDiceImage = 'assets/images/dice-1.png';
 
