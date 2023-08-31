@@ -174,7 +174,7 @@ TextButton(
 
 You can use a `SizedBox()` widget or padding inside the `TextButton.styleFrom(padding: 20,)` method:
 
-The `SizedBox` widget only takes up space(in this case the height) in the UI, it wont show anything. It has a fixed with and height therefore it won't grow to fit the contents of any widgets nested in it
+The `SizedBox` widget only takes up space(in this case the height) in the UI, it wont show anything. It has a fixed width and height therefore it won't grow to fit the contents of any widgets nested in it
 
 ```dart
 style: TextButton.styleFrom(
