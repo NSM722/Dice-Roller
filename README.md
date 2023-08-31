@@ -137,8 +137,7 @@ class GradientWrapper extends StatelessWidget {
 }
 ```
 
-Widgets are classes used to build UIs.
-Widgets are used for both layout and UI elements### Displaying Images
+### Displaying Images
 
 [Flutter Pub: Expected a key while parsing a block mapping. path:](https://stackoverflow.com/questions/50171766/flutter-pub-expected-a-key-while-parsing-a-block-mapping-path "Stack overflow thread")
 
